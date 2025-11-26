@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nature Beauty</title>
+
+<style>
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    font-family: "Times New Roman", serif;
+    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #2b2b2b;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Navbar */
+  nav {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(4px);
+  }
+
+  nav a {
+    color: #2b2b2b;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: bold;
+    transition: 0.3s ease;
+    font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 5px;
+  }
+
+  nav a:hover {
+    background-color: #0d554d; 
+    color: #ffffff; 
+  }
+
+  /* Content section */
+  main {
+    flex: 1;
+    max-width: 900px;
+    margin: 180px auto 0;
+    padding: 30px;
+    text-align: center;
+  }
+
+  main h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: #143f38;
+  }
+
+  main p {
+    font-size: 20px;
+    line-height: 1.7;
+    color: #0e2f2c;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+  }
+
+  .nature-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+  }
+
+  .nature-gallery img {
+    width: 250px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+  }
+
+  .nature-gallery img:hover {
+    transform: scale(1.05);
+  }
+
+  ul {
+    list-style-type: square;
+    text-align: left;
+    display: inline-block;
+    margin-top: 20px;
+    color: #07322d;
+  }
+
+  aside p {
+    margin-top: 20px;
+    font-style: italic;
+    color: #0d554d;
+  }
+
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    font-weight: bold;
+    color: #07322d;
+  }
+</style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="#about">About Us</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.nationalgeographic.com/environment" target="_blank">Learn More </a>
+    </nav>
+  </header>
+
+  <main>
+    <article id="about">
+      <h1>Beauty of Nature</h1>
+      <p>
+        Nature reminds us to slow down and appreciate the simple things.
+        The sunlight dancing on leaves, the sound of the wind through trees —
+        everything in nature speaks peace if we just take a moment to listen.
+      </p>
+
+      <ul>
+        <li>Fresh air keeps the mind calm</li>
+        <li>Trees bring life and energy</li>
+        <li>Sunsets remind us that endings can be beautiful</li>
+      </ul>
+    </article>
+
+    <section id="gallery">
+      <h2>Nature Gallery</h2>
+      <div class="nature-gallery">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Calm lake with mountains">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Ocean waves at sunset">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Forest path covered in sunlight">
+      </div>
+    </section>
+
+    <aside>
+      <p>“Take time to reconnect with nature.”</p>
+    </aside>
+  </main>
+
+  <footer id="contact">
+    <p>&copy; 2025 Nature Beauty | All Rights Reserved</p>
+    <p>Contact us at: <a href="mailto:info@naturebeauty.com">info@naturebeauty.com</a></p>
+  </footer>
+
+</body>
+</html>
