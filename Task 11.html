@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas & SVG Interactive Graphics</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        canvas { border: 1px solid black; margin-top: 20px; }
+        button { margin: 10px; padding: 10px; font-size: 16px; cursor: pointer; }
+        #drawingCanvas { margin-top: 20px; }
+        svg { border: 1px solid #ddd; margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <h1>Interactive Drawing App and SVG Animation</h1>
+
+    <!-- Drawing App Section -->
+    <h2>Canvas Drawing App</h2>
+    <canvas id="drawingCanvas" width="500" height="500"></canvas><br>
+    <button id="clearBtn">Clear</button>
+    <button id="saveBtn">Save as Image</button>
+
+    <!-- SVG Animation Section -->
+    <h2>SVG Animation</h2>
+    <svg width="500" height="500" id="svgCanvas">
+        <circle id="circle" cx="50" cy="50" r="20" fill="blue"></circle>
+    </svg>
+
+    <script>
+        // -----------------------------
+        // Canvas Drawing App Code
+        // -----------------------------
+        const canvas = document.getElementById('drawingCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let drawing = false;
+
+        // Start drawing when mouse is pressed
+        canvas.addEventListener('mousedown', (e) => {
+            drawing = true;
+            ctx.beginPath(); // Start a new path
+            ctx.moveTo(e.offsetX, e.offsetY); // Move to mouse position
+        });
+
+        // Draw as mouse moves
+        canvas.addEventListener('mousemove', (e) => {
+            if (drawing) {
+                ctx.lineTo(e.offsetX, e.offsetY); // Draw line
+                ctx.stroke(); // Render the line
+            }
+        });
+
+        // Stop drawing when mouse is released
+        canvas.addEventListener('mouseup', () => {
+            drawing = false;
+        });
+
+        // Clear canvas functionality
+        document.getElementById('clearBtn').addEventListener('click', () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clears the entire canvas
+        });
+
+        // Save canvas as image
+        document.getElementById('saveBtn').addEventListener('click', () => {
+            const imageUrl = canvas.toDataURL(); // Get the image as a data URL
+            const a = document.createElement('a');
+            a.href = imageUrl;
+            a.download = 'drawing.png'; // Set file name
+            a.click(); // Trigger download
+        });
+
+        // -----------------------------
+        // SVG Animation Code
+        // -----------------------------
+        const circle = document.getElementById('circle');
+
+        // Animate circle using requestAnimationFrame
+        let x = 50;
+        let y = 50;
+        const radius = 20;
+        let speed = 2;
+
+        function animateCircle() {
+            x += speed; // Move circle horizontally
+            if (x + radius > 500 || x - radius < 0) {
+                speed = -speed; // Change direction when it reaches the boundary
+            }
+            circle.setAttribute('cx', x); // Update circle's position
+
+            requestAnimationFrame(animateCircle); // Recursively call for animation
+        }
+
+        animateCircle(); // Start animation
+    </script>
+</body>
+</html>
